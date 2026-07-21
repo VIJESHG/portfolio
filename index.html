@@ -119,10 +119,10 @@
     <div id="projects-window" class="mac-window hidden">
       <div class="window-header">
         <div class="traffic-lights">
-          <span class="close" onclick="closeWindow('projects-window')"></span>
-          <span class="minimize"></span>
-          <span class="maximize"></span>
-        </div>
+            <span class="close" onclick="closeWindow('projects-window')"></span>
+            <span class="minimize"></span>
+            <span class="maximize" onclick="toggleMaximize('projects-window')"></span>
+          </div>
         <span class="window-title">Projects — Finder</span>
       </div>
       <div class="window-body">
@@ -138,11 +138,11 @@
   <!-- Modern macOS Window: About Me -->
 <div id="about-window" class="mac-window hidden">
     <div class="window-header">
-      <div class="traffic-lights">
-        <span class="close" onclick="closeWindow('about-window')"></span>
-        <span class="minimize"></span>
-        <span class="maximize"></span>
-      </div>
+        <div class="traffic-lights">
+            <span class="close" onclick="closeWindow('about-window')"></span>
+            <span class="minimize"></span>
+            <span class="maximize" onclick="toggleMaximize('about-window')"></span>
+          </div>
       <span class="window-title">About Me</span>
     </div>
   
@@ -187,12 +187,12 @@
         <span>🚀</span> Agentic AI & Autonomous Systems
       </h4>
       <p style="font-size: 12px; line-height: 1.4; color: #444; margin-bottom: 8px;">
-        Pioneering autonomous troubleshooting agents for Kubernetes and DevOps workflows using <b>LangGraph</b> and the <b>Model Context Protocol (MCP)</b> to create secure, stateful automation platforms.
+        I design and build intelligent automation platforms that combine <b>large language models (LLMs)</b>, modern frameworks, and secure orchestration to tackle complex engineering challenges. My focus is on creating <b>stateful, resilient systems</b> that reduce operational overhead, streamline DevOps workflows, and unlock new possibilities in enterprise-scale software.
       </p>
       <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
         <span style="background: rgba(88,86,214,0.1); color: #5856d6; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">LangGraph</span>
         <span style="background: rgba(88,86,214,0.1); color: #5856d6; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">MCP Protocol</span>
-        <span style="background: rgba(88,86,214,0.1); color: #5856d6; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">Kubernetes Automation</span>
+        <span style="background: rgba(88,86,214,0.1); color: #5856d6; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">GenAI</span>
         <span style="background: rgba(88,86,214,0.1); color: #5856d6; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">LLM Orchestration</span>
       </div>
   

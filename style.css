@@ -204,21 +204,47 @@
   }
   
   /* --- Finder Windows --- */
+  /* --- Resizable macOS Window --- */
   .mac-window {
     position: absolute;
-    top: 100px;
-    left: 300px;
-    width: 420px;
+    top: 80px;
+    left: 250px;
+    
+    /* Initial dimensions */
+    width: 650px;
+    height: 560px;
+    
+    /* Minimum & Maximum resize boundaries */
+    min-width: 320px;
+    min-height: 280px;
+    max-width: 95vw;
+    max-height: 85vh;
+    
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(30px);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+    
+    /* Flexbox keeps header fixed while body grows */
+    display: flex;
+    flex-direction: column;
+    
+    /* Enables native browser drag-to-resize in bottom-right corner */
+    resize: both;
+    overflow: auto;
   }
-  
+  /* --- Optional: Maximized Window State --- */
+.mac-window.maximized {
+    top: 36px !important;
+    left: 12px !important;
+    width: calc(100vw - 24px) !important;
+    height: calc(100vh - 140px) !important;
+    resize: none; /* Disables manual resize while maximized */
+  }
   .window-header {
     height: 36px;
+    flex-shrink: 0; /* Keeps header fixed at the top */
     background: rgba(235, 235, 235, 0.6);
     display: flex;
     align-items: center;
@@ -251,8 +277,10 @@
   }
   
   .window-body {
+    flex-grow: 1; /* Fills remaining window height */
     padding: 20px;
     color: #222;
+    overflow-y: auto; /* Adds a clean scrollbar if resized very small */
   }
   
   .hidden { display: none !important; }

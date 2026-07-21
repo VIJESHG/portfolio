@@ -43,7 +43,11 @@ function updateMenuClock() {
     const win = document.getElementById(id);
     win.classList.add('hidden');
   }
-  
+    // Toggle Maximize / Restore Window
+  function toggleMaximize(id) {
+    const win = document.getElementById(id);
+    win.classList.toggle('maximized');
+  }
   function bringToFront(win) {
     zIndex++;
     win.style.zIndex = zIndex;
