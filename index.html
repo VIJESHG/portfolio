@@ -30,7 +30,7 @@
             <div class="dropdown-divider"></div>
       
             <!-- Add more custom items here whenever you want! -->
-            <div class="dropdown-item" onclick="window.open('https://github.com', '_blank')">
+            <div class="dropdown-item" onclick="window.open('https://github.com/vijeshg', '_blank')">
               <span>GitHub Profile</span>
               <span class="shortcut">↗</span>
             </div>
@@ -112,27 +112,204 @@
       <div class="mac-folder-icon"></div>
       <span>About Me</span>
     </div>
-  
+    
+        <!-- Desktop Icon: Fullstack Nexus -->
+    <div class="desktop-icon" style="top: 330px; right: 30px;" onclick="openDesktopShortcut('https://vijeshg.github.io/fullstack-nexus/', '_blank')">
+        <div class="mac-app-icon nexus-icon">
+        <img src="fullstack-nexus.svg" alt="Fullstack Nexus" />
+        </div>
+        <span>Fullstack Nexus</span>
+    </div>
   </div>
 
     <!-- Modern macOS Window: Projects Finder -->
-    <div id="projects-window" class="mac-window hidden">
-      <div class="window-header">
-        <div class="traffic-lights">
-            <span class="close" onclick="closeWindow('projects-window')"></span>
-            <span class="minimize"></span>
-            <span class="maximize" onclick="toggleMaximize('projects-window')"></span>
-          </div>
-        <span class="window-title">Projects — Finder</span>
+    <!-- Modern macOS Window: Projects -->
+<div id="projects-window" class="mac-window hidden">
+    <div class="window-header">
+      <div class="traffic-lights">
+        <span class="close" onclick="closeWindow('projects-window')"></span>
+        <span class="minimize"></span>
+        <span class="maximize" onclick="toggleMaximize('projects-window')"></span>
       </div>
-      <div class="window-body">
-        <h3>📂 Featured Work</h3>
-        <ul class="project-list">
-          <li><strong>🚀 Web App Alpha:</strong> Built with React & Tailwind.</li>
-          <li><strong>⚡️ CLI Tool Beta:</strong> Open-source developer tool.</li>
-        </ul>
+      <span class="window-title">Projects — Vijesh Ghandare</span>
+    </div>
+  
+    <div class="window-body">
+      <!-- Subtitle / Intro -->
+      <div style="margin-bottom: 16px;">
+        <h3 style="margin: 0; font-size: 16px; font-weight: 700; color: #1d1d1f;">Selected Engineering Works</h3>
+        <p style="margin: 4px 0 0 0; font-size: 12px; color: #666;">A collection of fullstack platforms, autonomous AI systems, and developer tools.</p>
+      </div>
+  
+      <!-- Projects Grid Container -->
+      <div class="projects-grid">
+  
+        <!-- PROJECT 1: Fullstack Nexus -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-icon-box nexus-bg">⚡</div>
+            <div class="project-title-area">
+              <h4>Fullstack Nexus</h4>
+              <span class="project-category">Interactive Platform</span>
+            </div>
+            <span class="project-badge badge-green">Live</span>
+          </div>
+          <p class="project-description">
+            A comprehensive preparation and resource platform designed to master fullstack software architecture, system design, and modern web engineering.
+          </p>
+          <div class="project-tags">
+            <span class="ptag">Web Architecture</span>
+            <span class="ptag">JavaScript</span>
+            <span class="ptag">System Design</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://vijeshg.github.io/fullstack-nexus/" target="_blank" class="proj-btn primary">
+              <span>Live Site</span> ↗
+            </a>
+          </div>
+        </div>
+        <!-- PROJECT: SnapReadAI -->
+<div class="project-card">
+    <div class="project-card-header">
+     <!-- Updated SnapReadAI Header with PNG Icon -->
+    <div class="project-icon-box snapread-bg">
+        <img src="SnapReadAI.png" alt="SnapReadAI Logo" />
+    </div>
+      <div class="project-title-area">
+        <h4>SnapReadAI</h4>
+        <span class="project-category">AI Chrome Extension</span>
+      </div>
+      <span class="project-badge badge-purple">Featured</span>
+    </div>
+    <p class="project-description">
+      A Chrome Extension designed for instant webpage summarization and content extraction powered by the Gemini API and Manifest V3.
+    </p>
+    <div class="project-tags">
+      <span class="ptag">Manifest V3</span>
+      <span class="ptag">Gemini API</span>
+      <span class="ptag">JavaScript</span>
+      <span class="ptag">LLM Orchestration</span>
+    </div>
+    <div class="project-actions">
+        <!-- Video Demo Trigger -->
+<button onclick="playVideoDemo('https://raw.githubusercontent.com/VIJESHG/SnapReadAI/main/SnapReadAI-Demo.mov', 'SnapReadAI')" class="proj-btn demo" style="cursor: pointer;">
+    <span>▶ Video Demo</span>
+  </button>
+      <a href="https://github.com/VIJESHG/SnapReadAI" target="_blank" class="proj-btn secondary">
+        <span>GitHub Repo</span> ↗
+      </a>
+    </div>
+  </div>
+
+        <!-- PROJECT: PracticalJava -->
+<div class="project-card">
+    <div class="project-card-header">
+      <div class="project-icon-box java-bg">☕</div>
+      <div class="project-title-area">
+        <h4>PracticalJava</h4>
+        <span class="project-category">Java & Core Engineering</span>
+      </div>
+      <span class="project-badge badge-blue">Open Source</span>
+    </div>
+    <p class="project-description">
+      A curated collection of practical Java implementations, architectural patterns, modern Java features (Streams, Records, Concurrency), and backend development best practices.
+    </p>
+    <div class="project-tags">
+      <span class="ptag">Java</span>
+      <span class="ptag">Streams & Records</span>
+      <span class="ptag">Concurrency</span>
+      <span class="ptag">Design Patterns</span>
+    </div>
+    <div class="project-actions">
+      <a href="https://github.com/VIJESHG/PracticalJava" target="_blank" class="proj-btn secondary">
+        <span>GitHub Repo</span> ↗
+      </a>
+    </div>
+  </div>
+        <!-- PROJECT: MyCalci -->
+<div class="project-card">
+    <div class="project-card-header">
+      <div class="project-icon-box calci-bg">💻</div>
+      <div class="project-title-area">
+        <h4>MyCalci</h4>
+        <span class="project-category">Linux CLI & Data Structures</span>
+      </div>
+      <span class="project-badge badge-purple">C / C++</span>
+    </div>
+    <p class="project-description">
+      An arbitrary-precision Linux <code>bc</code> command-line tool. Solves complex infix big-integer expressions (addition, multiplication, division, modulus) and base-10 to base-16 conversions using custom doubly linked lists.
+    </p>
+    <div class="project-tags">
+      <span class="ptag">C / C++</span>
+      <span class="ptag">Doubly Linked List</span>
+      <span class="ptag">BigInt Math</span>
+      <span class="ptag">Infix Parser</span>
+      <span class="ptag">Linux CLI</span>
+    </div>
+    <div class="project-actions">
+        <button onclick="playVideoDemo('https://github.com/VIJESHG/MyCalci/blob/master/projectdemo.ogv', 'MyCalci')" class="proj-btn demo" style="cursor: pointer;">
+            <span>▶ Video Demo</span>
+          </button>
+      <a href="https://github.com/VIJESHG/MyCalci" target="_blank" class="proj-btn secondary">
+        <span>GitHub Repo</span> ↗
+      </a>
+    </div>
+  </div>
+        <!-- PROJECT 2: Autonomous Agentic AI Platform -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-icon-box ai-bg">🤖</div>
+            <div class="project-title-area">
+              <h4>K8s Troubleshooting Agent</h4>
+              <span class="project-category">Agentic AI & DevOps</span>
+            </div>
+            <span class="project-badge badge-purple">Featured</span>
+          </div>
+          <p class="project-description">
+            Autonomous troubleshooting agent combining LangGraph and Model Context Protocol (MCP) to create secure, stateful automation for Kubernetes workflows.
+          </p>
+          <div class="project-tags">
+            <span class="ptag">LangGraph</span>
+            <span class="ptag">MCP</span>
+            <span class="ptag">Kubernetes</span>
+            <span class="ptag">Python</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/vijeshg" target="_blank" class="proj-btn secondary">
+              <span>GitHub</span> ↗
+            </a>
+          </div>
+        </div>
+  
+        <!-- TEMPLATE PROJECT (Copy & paste this block to add more projects) -->
+        <!--
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-icon-box default-bg">🚀</div>
+            <div class="project-title-area">
+              <h4>Project Title</h4>
+              <span class="project-category">Category / Tech Area</span>
+            </div>
+            <span class="project-badge badge-blue">Active</span>
+          </div>
+          <p class="project-description">
+            Brief description of the problem solved, architecture used, or tangible results achieved.
+          </p>
+          <div class="project-tags">
+            <span class="ptag">React</span>
+            <span class="ptag">Node.js</span>
+            <span class="ptag">Cloud</span>
+          </div>
+          <div class="project-actions">
+            <a href="#" target="_blank" class="proj-btn primary">Demo ↗</a>
+            <a href="#" target="_blank" class="proj-btn secondary">Code ↗</a>
+          </div>
+        </div>
+        -->
+  
       </div>
     </div>
+  </div>
 
     <!-- Modern macOS Window: About Me -->
   <!-- Modern macOS Window: About Me -->
@@ -211,28 +388,144 @@
     </div>
   </div>
 
+  <!-- Modern macOS Window: Contact -->
+<div id="contact-window" class="mac-window hidden">
+    <div class="window-header">
+      <div class="traffic-lights">
+        <span class="close" onclick="closeWindow('contact-window')"></span>
+        <span class="minimize"></span>
+        <span class="maximize" onclick="toggleMaximize('contact-window')"></span>
+      </div>
+      <span class="window-title">Contact — Vijesh Ghandare</span>
+    </div>
+  
+    <div class="window-body">
+      <!-- Contact Header Card -->
+      <div class="contact-card-header">
+        <div class="contact-avatar">VG</div>
+        <div class="contact-meta">
+          <h3>Vijesh Ghandare</h3>
+          <p>Staff Software Engineer</p>
+          <span class="contact-status-badge">🟢 Open for Collaborations</span>
+        </div>
+      </div>
+  
+      <hr class="mac-divider" />
+  
+      <!-- Primary Quick Actions -->
+      <div class="contact-actions">
+        <!-- Email Button (With Copy to Clipboard) -->
+        <button class="action-btn" onclick="copyEmail('mail.vijeshg@gmail.com', this)">
+          <span class="btn-icon">✉️</span>
+          <span class="btn-label">Copy Email</span>
+        </button>
+  
+        <!-- Direct Message / Form Link -->
+        <a href="mailto:mail.vijeshg@gmail.com" target="_blank" class="action-btn primary">
+          <span class="btn-icon">💬</span>
+          <span class="btn-label">Send Mail</span>
+        </a>
+      </div>
+  
+      <!-- Links Section -->
+      <div class="contact-links-list">
+        <h4 class="section-subtitle">Connect & Profiles</h4>
+  
+        <!-- GitHub Link -->
+        <a href="https://github.com/vijeshg" target="_blank" class="contact-link-row">
+          <div class="link-icon-bg github-bg">
+            <!-- Place your SVG / Image icon here -->
+            <!-- <span class="fallback-icon">🐙</span> -->
+            <div class="dock-icon github-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </div>
+          </div>
+          <div class="link-details">
+            <span class="link-title">GitHub</span>
+            <span class="link-sub">github.com/vijeshg</span>
+          </div>
+          <span class="external-arrow">↗</span>
+        </a>
+  
+        <!-- LinkedIn Link -->
+        <a href="https://www.linkedin.com/in/vijeshg/" target="_blank" class="contact-link-row">
+          <div class="link-icon-bg linkedin-bg">
+            <!-- Place your SVG / Image icon here -->
+            <span class="fallback-icon">💼</span>
+          </div>
+          <div class="link-details">
+            <span class="link-title">LinkedIn</span>
+            <span class="link-sub">linkedin.com/in/vijeshg</span>
+          </div>
+          <span class="external-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
   </main>
 
   <!-- Floating Glass macOS Dock -->
   <footer class="dock-container">
     <div class="dock">
+       <!-- About Me Dock Item -->
+    <div class="dock-item" title="About Me" onclick="openWindow('about-window')">
+        <div class="dock-icon about-dock-icon">
+        <!-- macOS User / Profile SVG Icon -->
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        </div>
+    </div>
       <div class="dock-item" title="Finder" onclick="openWindow('projects-window')">
-        <div class="dock-icon finder-icon">💻</div>
+        <div class="dock-icon finder-icon">🧭</div>
         <span class="dot"></span>
       </div>
-      <div class="dock-item" title="About" onclick="openWindow('about-window')">
-        <div class="dock-icon safari-icon">🧭</div>
+      <!-- <div class="dock-item" title="About" onclick="openWindow('about-window')">
+        <div class="dock-icon safari-icon">🧭💻</div>
+      </div> -->
+     
+      <div class="dock-item" title="GitHub" onclick="window.open('https://github.com/vijeshg', '_blank')">
+        <div class="dock-icon github-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </div>
       </div>
-      <div class="dock-item" title="GitHub" onclick="window.open('https://github.com', '_blank')">
-        <div class="dock-icon github-icon">🐙</div>
-      </div>
+      <!-- Contact Dock Item -->
+    <div class="dock-item" title="Contact" onclick="openWindow('contact-window')">
+        <div class="dock-icon contact-dock-icon">
+        <!-- macOS Mail / Contact SVG Icon -->
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        </div>
+    </div>
       <div class="dock-divider"></div>
       <div class="dock-item" title="Trash">
         <div class="dock-icon">🗑️</div>
       </div>
     </div>
   </footer>
-
+  <!-- macOS QuickTime Video Player Window -->
+<div id="video-window" class="mac-window hidden" style="width: 640px; top: 100px; left: calc(50vw - 320px);">
+    <div class="window-header">
+      <div class="traffic-lights">
+        <span class="close" onclick="closeVideoModal()"></span>
+        <span class="minimize"></span>
+        <span class="maximize" onclick="toggleMaximize('video-window')"></span>
+      </div>
+      <span class="window-title" id="video-window-title">QuickTime Player — Demo</span>
+    </div>
+  
+    <div class="window-body" style="padding: 0; background: #000; overflow: hidden; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+      <video id="demo-video-player" controls style="width: 100%; height: auto; display: block; max-height: 70vh;">
+        <source id="video-source" src="" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

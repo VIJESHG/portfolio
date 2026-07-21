@@ -443,3 +443,412 @@
     background: rgba(0, 0, 0, 0.1);
     margin: 4px 0;
   }
+  /* --- macOS Contact Card Styling --- */
+.contact-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .contact-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #34c759, #30b0c7);
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
+  }
+  
+  .contact-meta h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1d1d1f;
+  }
+  
+  .contact-meta p {
+    margin: 2px 0 6px 0;
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .contact-status-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  
+  .mac-divider {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin: 14px 0;
+  }
+  
+  /* Action Buttons */
+  .contact-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  
+  .action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.6);
+    color: #1d1d1f;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  
+  .action-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .action-btn.primary {
+    background: #007aff;
+    color: white;
+    border: none;
+  }
+  
+  .action-btn.primary:hover {
+    background: #0062cc;
+  }
+  
+  /* Links List */
+  .section-subtitle {
+    font-size: 12px;
+    font-weight: 600;
+    color: #8e8e93;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 10px 0;
+  }
+  
+  .contact-link-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s ease;
+    margin-bottom: 4px;
+  }
+  
+  .contact-link-row:hover {
+    background: rgba(0, 122, 255, 0.08);
+  }
+  
+  .link-icon-bg {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+  }
+  
+  .github-bg { background: #24292e; }
+  .linkedin-bg { background: #0077b5; }
+  .twitter-bg { background: #1da1f2; }
+  
+  .link-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .link-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d1d1f;
+  }
+  
+  .link-sub {
+    font-size: 11px;
+    color: #8e8e93;
+  }
+  
+  .external-arrow {
+    color: #c7c7cc;
+    font-weight: bold;
+  }
+  /* Custom GitHub Dock Icon Styling */
+.github-icon {
+    background: #24292e !important; 
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .github-icon svg {
+    transition: transform 0.2s ease;
+  }
+  
+  .dock-item:hover .github-icon svg {
+    transform: scale(1.1);
+  }
+  /* Custom Contact Dock Icon Styling */
+.contact-dock-icon {
+    background: linear-gradient(135deg, #34c759, #30b0c7) !important; /* macOS signature green gradient */
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-dock-icon svg {
+    transition: transform 0.2s ease;
+  }
+  
+  .dock-item:hover .contact-dock-icon svg {
+    transform: scale(1.1);
+  }
+
+  /* Custom About Me Dock Icon Styling */
+.about-dock-icon {
+    background: linear-gradient(135deg, #007aff, #5856d6) !important; /* macOS signature Blue/Purple gradient */
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .about-dock-icon svg {
+    transition: transform 0.2s ease;
+  }
+  
+  .dock-item:hover .about-dock-icon svg {
+    transform: scale(1.1);
+  }
+  /* --- Generic macOS Desktop App Tiles --- */
+.mac-app-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px; /* macOS Squircle corner radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    overflow: hidden;
+  }
+  
+  .mac-app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .desktop-icon:hover .mac-app-icon {
+    transform: scale(1.06);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+  
+  /* Specific Gradient for Fullstack Nexus */
+  .nexus-icon {
+    background: transparent;
+    box-shadow: none; /* Uses the SVG's natural background */
+  }
+
+  /* Keeps desktop icon labels on a single line */
+.desktop-icon span {
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+    font-size: 11px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Ensures text stands out against wallpapers */
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  /* --- Projects Grid & Cards Styling --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  
+  .project-card {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  
+  .project-card:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .project-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .project-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    flex-shrink: 0;
+  }
+  
+  .nexus-bg { background: linear-gradient(135deg, #4f46e5, #9333ea); }
+  .ai-bg { background: linear-gradient(135deg, #007aff, #5856d6); }
+  .default-bg { background: linear-gradient(135deg, #34c759, #30b0c7); }
+  
+  .project-title-area {
+    flex-grow: 1;
+  }
+  
+  .project-title-area h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1d1d1f;
+  }
+  
+  .project-category {
+    font-size: 11px;
+    color: #8e8e93;
+  }
+  
+  /* Badges */
+  .project-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 8px;
+    text-transform: uppercase;
+  }
+  
+  .badge-green { background: rgba(52, 199, 89, 0.15); color: #28a745; }
+  .badge-purple { background: rgba(88, 86, 214, 0.15); color: #5856d6; }
+  .badge-blue { background: rgba(0, 122, 255, 0.15); color: #007aff; }
+  
+  /* Description */
+  .project-description {
+    font-size: 12px;
+    line-height: 1.45;
+    color: #444;
+    margin: 0 0 12px 0;
+  }
+  
+  /* Tech Tags */
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  
+  .ptag {
+    background: rgba(0, 0, 0, 0.05);
+    color: #555;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  
+  /* Action Buttons */
+  .project-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+  }
+  
+  .proj-btn {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.15s ease;
+  }
+  
+  .proj-btn.primary {
+    background: #007aff;
+    color: white;
+  }
+  
+  .proj-btn.primary:hover {
+    background: #0062cc;
+  }
+  
+  .proj-btn.secondary {
+    background: rgba(0, 0, 0, 0.06);
+    color: #333;
+  }
+  
+  .proj-btn.secondary:hover {
+    background: rgba(0, 0, 0, 0.12);
+  }
+
+  /* Optional Video Demo Button */
+.proj-btn.demo {
+    background: rgba(255, 59, 48, 0.12);
+    color: #ff3b30;
+    border: 1px solid rgba(255, 59, 48, 0.2);
+  }
+  
+  .proj-btn.demo:hover {
+    background: #ff3b30;
+    color: #ffffff;
+  }
+
+  .java-bg {
+    background: linear-gradient(135deg, #f89820, #e76f51); /* Warm Java Orange Gradient */
+  }
+  .calci-bg {
+    background: linear-gradient(135deg, #1e293b, #0f172a); /* Terminal Dark Slate Gradient */
+  }
+
+  /* Style for PNG/image icons inside project cards */
+.project-icon-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .snapread-bg {
+    background: transparent;
+  }

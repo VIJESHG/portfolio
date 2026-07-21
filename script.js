@@ -179,3 +179,114 @@ document.querySelectorAll('.desktop-icon').forEach(icon => {
       }
     }, true);
   });
+// Copy Email to Clipboard Function
+function copyEmail(emailAddress, buttonEl) {
+    navigator.clipboard.writeText(emailAddress).then(() => {
+      const label = buttonEl.querySelector('.btn-label');
+      const originalText = label.innerText;
+      
+      label.innerText = 'Copied! ✓';
+      buttonEl.style.background = '#34c759';
+      buttonEl.style.color = 'white';
+  
+      setTimeout(() => {
+        label.innerText = originalText;
+        buttonEl.style.background = '';
+        buttonEl.style.color = '';
+      }, 2000);
+    });
+  }
+
+  // --- Generic Link Handler (Prevents opening link while dragging) ---
+let isIconDragging = false;
+
+function openDesktopShortcut(url, target = '_blank') {
+  if (!isIconDragging) {
+    window.open(url, target);
+  }
+}
+
+// --- Universal Drag-and-Drop for ALL Desktop Icons ---
+function initDesktopIcons() {
+  document.querySelectorAll('.desktop-icon').forEach(icon => {
+    let startX = 0, startY = 0;
+    let offsetX = 0, offsetY = 0;
+    let hasDragged = false;
+
+    icon.addEventListener('mousedown', (e) => {
+      hasDragged = false;
+      isIconDragging = false;
+      startX = e.clientX;
+      startY = e.clientY;
+
+      offsetX = e.clientX - icon.getBoundingClientRect().left;
+      offsetY = e.clientY - icon.getBoundingClientRect().top;
+
+      icon.style.zIndex = 600; // Bring active icon to front
+
+      const onMouseMove = (moveEvent) => {
+        // Detect movement threshold to differentiate between click vs drag
+        if (Math.abs(moveEvent.clientX - startX) > 4 || Math.abs(moveEvent.clientY - startY) > 4) {
+          hasDragged = true;
+          isIconDragging = true;
+        }
+
+        if (hasDragged) {
+          const newLeft = moveEvent.clientX - offsetX;
+          const newTop = Math.max(28, moveEvent.clientY - offsetY); // Stay below menu bar
+
+          icon.style.left = `${newLeft}px`;
+          icon.style.top = `${newTop}px`;
+          icon.style.right = 'auto'; // Clear CSS 'right' positioning
+        }
+      };
+
+      const onMouseUp = () => {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+        icon.style.zIndex = 20;
+
+        // Reset drag lock after small delay so click handler doesn't trigger
+        setTimeout(() => { isIconDragging = false; }, 50);
+      };
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+    });
+  });
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initDesktopIcons);
+
+// --- macOS QuickTime Video Modal Engine ---
+function playVideoDemo(videoRawUrl, title = 'Video Demo') {
+    const videoWin = document.getElementById('video-window');
+    const videoPlayer = document.getElementById('demo-video-player');
+    const videoTitle = document.getElementById('video-window-title');
+  
+    if (videoWin && videoPlayer) {
+      videoTitle.innerText = `QuickTime Player — ${title}`;
+      videoPlayer.src = videoRawUrl;
+      
+      // Bring window to top layer & display
+      videoWin.classList.remove('hidden');
+      videoWin.style.zIndex = 1000;
+      
+      // Auto play
+      videoPlayer.play().catch(err => console.log('Autoplay deferred:', err));
+    }
+  }
+  
+  function closeVideoModal() {
+    const videoWin = document.getElementById('video-window');
+    const videoPlayer = document.getElementById('demo-video-player');
+  
+    if (videoPlayer) {
+      videoPlayer.pause();
+      videoPlayer.src = ''; // Stop video buffering in background
+    }
+    if (videoWin) {
+      videoWin.classList.add('hidden');
+    }
+  }
