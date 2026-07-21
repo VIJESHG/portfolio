@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macintosh HD - Portfolio</title>
+  
+  <!-- Retro Mac OS CSS Framework -->
+  <link rel="stylesheet" href="https://unpkg.com/system.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Menu Bar -->
+  <header class="mac-menu-bar">
+    <div class="menu-items">
+      <span class="apple-logo"></span>
+      <span class="menu-bold">File</span>
+      <span>Edit</span>
+      <span>View</span>
+      <span>Special</span>
+    </div>
+    <div id="clock">12:00 PM</div>
+  </header>
+
+  <!-- Desktop Icons Surface -->
+  <main class="desktop">
+    <div class="icon" onclick="openWindow('about-window')">
+      <img src="https://api.iconify.design/emojione-monotone:floppy-disk.svg" alt="Disk">
+      <span>Macintosh HD</span>
+    </div>
+
+    <div class="icon" onclick="openWindow('projects-window')">
+      <img src="https://api.iconify.design/emojione-monotone:file-folder.svg" alt="Folder">
+      <span>Projects</span>
+    </div>
+
+    <div class="icon" onclick="openWindow('contact-window')">
+      <img src="https://api.iconify.design/emojione-monotone:envelope.svg" alt="Mail">
+      <span>Contact.txt</span>
+    </div>
+  </main>
+
+  <!-- Window 1: About Me -->
+  <div id="about-window" class="window window-dialog active-window" style="top: 80px; left: 120px;">
+    <div class="title-bar">
+      <button class="close-icon" onclick="closeWindow('about-window')" aria-label="Close"></button>
+      <h1 class="title">About Me.txt</h1>
+    </div>
+    <div class="separator"></div>
+    <div class="window-pane">
+      <p><b>Welcome to System 7 Portfolio!</b></p>
+      <p>I am a developer who loves clean code, retro interfaces, and building creative web apps.</p>
+      <div class="field-row" style="justify-content: flex-end; margin-top: 20px;">
+        <button onclick="closeWindow('about-window')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Window 2: Projects -->
+  <div id="projects-window" class="window hidden" style="top: 120px; left: 200px;">
+    <div class="title-bar">
+      <button class="close-icon" onclick="closeWindow('projects-window')" aria-label="Close"></button>
+      <h1 class="title">Projects</h1>
+    </div>
+    <div class="separator"></div>
+    <div class="window-pane">
+      <ul>
+        <li><a href="https://github.com" target="_blank"><b>Project 1</b></a> - Brief description here.</li>
+        <li><a href="https://github.com" target="_blank"><b>Project 2</b></a> - Another cool project.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Window 3: Contact -->
+  <div id="contact-window" class="window hidden" style="top: 160px; left: 280px;">
+    <div class="title-bar">
+      <button class="close-icon" onclick="closeWindow('contact-window')" aria-label="Close"></button>
+      <h1 class="title">Contact Info</h1>
+    </div>
+    <div class="separator"></div>
+    <div class="window-pane">
+      <p>Reach out via GitHub or Email:</p>
+      <p>📧 Email: <code>mail.vijeshg@gmail.com</code></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
