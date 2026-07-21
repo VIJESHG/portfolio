@@ -1,89 +1,417 @@
-/* Custom Desktop Styling */
-* {
+:root {
+    /* Set your wallpaper image filename here */
+    --wallpaper-url: url('wallpaper.jpg');
+    --mac-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
   
   body {
-    margin: 0;
-    padding: 0;
+    font-family: var(--mac-font);
     height: 100vh;
-    background-color: #808080;
-    /* Retro Mac OS Checkerboard Pattern */
-    background-image: radial-gradient(#000 15%, transparent 16%);
-    background-size: 4px 4px;
-    font-family: "Geneva", "Chicago", sans-serif;
+    width: 100vw;
     overflow: hidden;
+    background: var(--wallpaper-url) center/cover no-repeat;
     user-select: none;
   }
   
-  /* Top Menu Bar */
-  .mac-menu-bar {
-    height: 24px;
-    background: white;
-    border-bottom: 2px solid black;
+  /* --- Top Menu Bar --- */
+  .menu-bar {
+    height: 28px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(25px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 12px;
+    padding: 0 16px;
     font-size: 13px;
+    color: #000;
+    font-weight: 500;
     position: relative;
-    z-index: 9999;
+    z-index: 10000 !important; /* Menu stays above all desktop items */
   }
   
-  .menu-items span {
-    margin-right: 18px;
+  .menu-left, .menu-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .apple-icon {
+    font-size: 16px;
     cursor: pointer;
   }
   
-  .menu-bold {
-    font-weight: bold;
-  }
-  
-  .apple-logo {
-    font-size: 15px;
-  }
-  
-  /* Desktop Icon Grid */
+  /* --- Desktop Layout --- */
   .desktop {
+    position: relative;
+    height: calc(100vh - 28px - 90px);
     padding: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 25px;
-    align-items: flex-start;
-    width: 100px;
+    justify-content: space-between;
   }
   
-  .icon {
+  /* --- Desktop Widgets --- */
+  .widgets-container {
+    display: flex;
+    gap: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Let clicks pass through empty spaces */
+  }
+  
+  .widget {
+    width: 140px;
+    height: 140px;
+    border-radius: 24px;
+    background: rgba(30, 30, 30, 0.65);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: absolute;
+    pointer-events: auto; /* Re-enable pointer for widgets */
+    cursor: grab;
+    user-select: none;
+    z-index: 10;
+  }
+  .widget:active {
+    cursor: grabbing;
+  }
+  /* Analog Clock Widget */
+  .clock-face {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    background: #ffffff;
+    position: relative;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+  }
+  
+  .num {
+    position: absolute;
+    font-size: 11px;
+    font-weight: 700;
+    color: #1d1d1f;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    line-height: 14px;
+  }
+  /* Positioning Digits around 108px Circle */
+    .num-12 { top: 4px; left: 47px; }
+    .num-1  { top: 10px; right: 26px; }
+    .num-2  { top: 26px; right: 10px; }
+    .num-3  { top: 47px; right: 4px; }
+    .num-4  { bottom: 26px; right: 10px; }
+    .num-5  { bottom: 10px; right: 26px; }
+    .num-6  { bottom: 4px; left: 47px; }
+    .num-7  { bottom: 10px; left: 26px; }
+    .num-8  { bottom: 26px; left: 10px; }
+    .num-9  { top: 47px; left: 4px; }
+    .num-10 { top: 26px; left: 10px; }
+    .num-11 { top: 10px; left: 26px; }
+  .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    background: #1e1e1e;
+    border-radius: 4px;
+  }
+  .hand.hour { width: 4px; height: 28px; margin-left: -2px; }
+  .hand.minute { width: 3px; height: 38px; margin-left: -1.5px; }
+  .hand.second { width: 1.5px; height: 42px; margin-left: -0.75px; background: #ff9500; }
+  .center-dot {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 8px; height: 8px;
+    margin: -4px 0 0 -4px;
+    background: #ff9500;
+    border-radius: 50%;
+  }
+  
+  /* Calendar Widget */
+  .calendar-widget {
+    font-weight: 600;
+  }
+  .cal-day { color: #ff3b30; font-size: 14px; text-transform: uppercase; }
+  .cal-month { color: #8e8e93; font-size: 14px; margin-top: -2px; }
+  .cal-date { font-size: 54px; font-weight: 300; line-height: 1; }
+  
+  /* --- Desktop Icons Layout --- */
+.desktop-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Let clicks pass through empty background */
+  }
+  
+  .desktop-icon {
+    position: absolute;
+    pointer-events: auto; /* Re-enable pointer events for icons */
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 75px;
-    cursor: pointer;
-    text-align: center;
+    width: 80px;
+    cursor: grab;
     color: white;
-    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
     font-size: 12px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    user-select: none;
+    z-index: 20;
   }
   
-  .icon img {
-    width: 32px;
-    height: 32px;
+  .desktop-icon:active {
+    cursor: grabbing;
+  }
+  
+  .mac-folder-icon {
+    width: 48px;
+    height: 40px;
+    background: #50a2e8;
+    border-radius: 4px 10px 4px 4px;
+    position: relative;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.3);
     margin-bottom: 6px;
-    image-rendering: pixelated;
   }
-  
-  /* Windows Adjustments */
-  .window {
+  .mac-folder-icon::before {
+    content: '';
     position: absolute;
-    width: 320px;
-    background: white;
-    box-shadow: 3px 3px 0px #000;
+    top: -6px; left: 0;
+    width: 20px; height: 8px;
+    background: #50a2e8;
+    border-radius: 4px 4px 0 0;
   }
   
-  .title-bar {
+  .mac-file-icon {
+    font-size: 38px;
+    margin-bottom: 2px;
+  }
+  
+  /* --- Finder Windows --- */
+  .mac-window {
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    width: 420px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(30px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  
+  .window-header {
+    height: 36px;
+    background: rgba(235, 235, 235, 0.6);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    position: relative;
     cursor: move;
   }
   
-  .hidden {
-    display: none !important;
+  .traffic-lights {
+    display: flex;
+    gap: 8px;
+  }
+  .traffic-lights span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .traffic-lights .close { background: #ff5f56; }
+  .traffic-lights .minimize { background: #ffbd2e; }
+  .traffic-lights .maximize { background: #27c93f; }
+  
+  .window-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .window-body {
+    padding: 20px;
+    color: #222;
+  }
+  
+  .hidden { display: none !important; }
+  
+  /* --- Floating Glass Dock --- */
+  .dock-container {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+  }
+  
+  .dock {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(30px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 8px 12px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  }
+  
+  .dock-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+  }
+  
+  .dock-item:hover {
+    transform: scale(1.25) translateY(-8px);
+  }
+  
+  .dock-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    background: rgba(255,255,255,0.4);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  
+  .dock-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.3);
+  }
+  
+  .dot {
+    width: 4px;
+    height: 4px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -6px;
+  }
+
+  /* --- Custom VG Brand Menu --- */
+.brand-menu-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 2px 8px;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+  }
+  
+  .brand-menu-wrapper:hover,
+  .brand-menu-wrapper.active {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Modern Gradient Monogram Badge */
+  .vg-logo {
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #007aff, #5856d6);
+    color: white;
+    font-weight: 800;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .brand-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1d1d1f;
+  }
+  
+  /* Translucent Dropdown Menu */
+  .mac-dropdown {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 210px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 10001 !important; /* Dropdown renders on top of widgets */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dropdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #1d1d1f;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+  }
+  
+  .dropdown-item:hover {
+    background: #007aff;
+    color: white;
+  }
+  
+  .dropdown-item:hover .shortcut {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .dropdown-item.disabled {
+    color: #8e8e93;
+    cursor: default;
+  }
+  
+  .dropdown-item.disabled:hover {
+    background: transparent;
+    color: #8e8e93;
+  }
+  
+  .shortcut {
+    font-size: 11px;
+    color: #8e8e93;
+  }
+  
+  .dropdown-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 4px 0;
   }

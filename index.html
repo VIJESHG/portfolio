@@ -3,87 +3,235 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Macintosh HD - Portfolio</title>
-  
-  <!-- Retro Mac OS CSS Framework -->
-  <link rel="stylesheet" href="https://unpkg.com/system.css">
+  <title>Portfolio - macOS Desktop</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Top Menu Bar -->
-  <header class="mac-menu-bar">
-    <div class="menu-items">
-      <span class="apple-logo"></span>
-      <span class="menu-bold">File</span>
-      <span>Edit</span>
-      <span>View</span>
-      <span>Special</span>
+  <!-- Top macOS Translucent Menu Bar -->
+  <header class="menu-bar">
+    <div class="menu-left">
+        <!-- VG Brand Logo & Name Menu -->
+        <div class="brand-menu-wrapper" onclick="toggleBrandMenu(event)">
+          <div class="vg-logo">VG</div>
+          <span class="brand-name">Vijesh Ghandare</span>
+      
+          <!-- macOS Dropdown Menu -->
+          <div id="brand-dropdown" class="mac-dropdown hidden">
+            <div class="dropdown-item" onclick="openWindow('about-window')">
+              <span>About Vijesh</span>
+              <span class="shortcut">⌘A</span>
+            </div>
+            <div class="dropdown-item" onclick="openWindow('contact-window')">
+              <span>Contact</span>
+              <span class="shortcut">⌘C</span>
+            </div>
+            
+            <div class="dropdown-divider"></div>
+      
+            <!-- Add more custom items here whenever you want! -->
+            <div class="dropdown-item" onclick="window.open('https://github.com', '_blank')">
+              <span>GitHub Profile</span>
+              <span class="shortcut">↗</span>
+            </div>
+            
+            <div class="dropdown-divider"></div>
+            
+            <div class="dropdown-item disabled">
+              <span>macOS Portfolio v2.0</span>
+            </div>
+          </div>
+        </div>
+      
+        <span class="app-title"><b>Finder</b></span>
+        <span>File</span>
+        <span>Edit</span>
+        <span>View</span>
+        <span>Go</span>
+        <span>Window</span>
+        <span>Help</span>
+      </div>
+    <div class="menu-right">
+      <span class="status-icon">⚡️</span>
+      <span class="status-icon">􀙇</span>
+      <span id="menu-clock">Tue Jul 21 6:29 PM</span>
     </div>
-    <div id="clock">12:00 PM</div>
   </header>
 
-  <!-- Desktop Icons Surface -->
+  <!-- Desktop Surface -->
   <main class="desktop">
-    <div class="icon" onclick="openWindow('about-window')">
-      <img src="https://api.iconify.design/emojione-monotone:floppy-disk.svg" alt="Disk">
-      <span>Macintosh HD</span>
-    </div>
 
-    <div class="icon" onclick="openWindow('projects-window')">
-      <img src="https://api.iconify.design/emojione-monotone:file-folder.svg" alt="Folder">
+    <!-- macOS Widgets Area (Left) -->
+    <!-- Desktop Widgets (Draggable Anywhere) -->
+<div class="widgets-container">
+
+    <!-- Analog Clock Widget -->
+    <div class="widget clock-widget" style="top: 20px; left: 20px;">
+      <div class="clock-face">
+        <!-- Clock Digits -->
+        <span class="num num-12">12</span>
+        <span class="num num-1">1</span>
+        <span class="num num-2">2</span>
+        <span class="num num-3">3</span>
+        <span class="num num-4">4</span>
+        <span class="num num-5">5</span>
+        <span class="num num-6">6</span>
+        <span class="num num-7">7</span>
+        <span class="num num-8">8</span>
+        <span class="num num-9">9</span>
+        <span class="num num-10">10</span>
+        <span class="num num-11">11</span>
+  
+        <!-- Hands -->
+        <div class="hand hour" id="hour-hand"></div>
+        <div class="hand minute" id="min-hand"></div>
+        <div class="hand second" id="sec-hand"></div>
+        <div class="center-dot"></div>
+      </div>
+    </div>
+  
+    <!-- Calendar Widget -->
+    <div class="widget calendar-widget" style="top: 20px; left: 175px;">
+      <div class="cal-day" id="cal-day">Tue</div>
+      <div class="cal-month" id="cal-month">Jul</div>
+      <div class="cal-date" id="cal-date">21</div>
+    </div>
+  
+  </div>
+
+    <!-- Desktop Folders & Files (Right / Surface) -->
+    <!-- Desktop Folders & Files (Draggable) -->
+<div class="desktop-icons">
+  
+    <div class="desktop-icon" style="top: 30px; right: 30px;" onclick="openWindow('projects-window')">
+      <div class="mac-folder-icon"></div>
       <span>Projects</span>
     </div>
-
-    <div class="icon" onclick="openWindow('contact-window')">
-      <img src="https://api.iconify.design/emojione-monotone:envelope.svg" alt="Mail">
-      <span>Contact.txt</span>
+  
+    <div class="desktop-icon" style="top: 130px; right: 30px;" onclick="openWindow('about-window')">
+      <div class="mac-folder-icon"></div>
+      <span>About Me</span>
     </div>
-  </main>
+  
+  </div>
 
-  <!-- Window 1: About Me -->
-  <div id="about-window" class="window window-dialog active-window" style="top: 80px; left: 120px;">
-    <div class="title-bar">
-      <button class="close-icon" onclick="closeWindow('about-window')" aria-label="Close"></button>
-      <h1 class="title">About Me.txt</h1>
+    <!-- Modern macOS Window: Projects Finder -->
+    <div id="projects-window" class="mac-window hidden">
+      <div class="window-header">
+        <div class="traffic-lights">
+          <span class="close" onclick="closeWindow('projects-window')"></span>
+          <span class="minimize"></span>
+          <span class="maximize"></span>
+        </div>
+        <span class="window-title">Projects — Finder</span>
+      </div>
+      <div class="window-body">
+        <h3>📂 Featured Work</h3>
+        <ul class="project-list">
+          <li><strong>🚀 Web App Alpha:</strong> Built with React & Tailwind.</li>
+          <li><strong>⚡️ CLI Tool Beta:</strong> Open-source developer tool.</li>
+        </ul>
+      </div>
     </div>
-    <div class="separator"></div>
-    <div class="window-pane">
-      <p><b>Welcome to System 7 Portfolio!</b></p>
-      <p>I am a developer who loves clean code, retro interfaces, and building creative web apps.</p>
-      <div class="field-row" style="justify-content: flex-end; margin-top: 20px;">
-        <button onclick="closeWindow('about-window')">Close</button>
+
+    <!-- Modern macOS Window: About Me -->
+  <!-- Modern macOS Window: About Me -->
+<div id="about-window" class="mac-window hidden">
+    <div class="window-header">
+      <div class="traffic-lights">
+        <span class="close" onclick="closeWindow('about-window')"></span>
+        <span class="minimize"></span>
+        <span class="maximize"></span>
+      </div>
+      <span class="window-title">About Me</span>
+    </div>
+  
+    <div class="window-body">
+      <!-- Header Profile Badge -->
+      <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #007aff, #5856d6); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; box-shadow: 0 4px 12px rgba(0,122,255,0.3);">
+          VG
+        </div>
+        <div>
+          <h2 style="margin: 0; font-size: 19px; font-weight: 700; color: #1d1d1f;">Vijesh Ghandare</h2>
+          <p style="margin: 3px 0 0 0; color: #007aff; font-size: 13px; font-weight: 600;">Staff Software Engineer | Fullstack & Agentic AI Specialist</p>
+        </div>
+      </div>
+  
+      <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 14px 0;">
+  
+      <!-- Intro -->
+      <p style="font-size: 13px; line-height: 1.5; color: #333; margin-bottom: 14px;">
+        Results-driven engineer with <b>7+ years of experience</b> building scalable, user-centric solutions across industries. I specialize in complete <b>end-to-end fullstack development</b>—from frontend polish and backend microservices to cloud deployments and AI automation.
+      </p>
+  
+      <!-- Section 1: Fullstack Development -->
+      <h4 style="margin: 14px 0 6px 0; font-size: 14px; color: #007aff; display: flex; align-items: center; gap: 6px;">
+        <span>💻</span> End-to-End Fullstack Engineering
+      </h4>
+      <p style="font-size: 12px; line-height: 1.4; color: #444; margin-bottom: 8px;">
+        Designing and deploying high-performance applications with clean architecture, robust APIs, and responsive UIs.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
+        <span style="background: rgba(0,122,255,0.1); color: #007aff; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">ReactJS</span>
+        <span style="background: rgba(0,122,255,0.1); color: #007aff; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">Angular</span>
+        <span style="background: rgba(0,122,255,0.1); color: #007aff; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">Node.js</span>
+        <span style="background: rgba(0,122,255,0.1); color: #007aff; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">Spring Boot</span>
+        <span style="background: rgba(0,122,255,0.1); color: #007aff; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">Java</span>
+        <span style="background: rgba(0,122,255,0.1); color: #007aff; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">Python</span>
+        <span style="background: rgba(0,122,255,0.1); color: #007aff; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">SQL Server</span>
+      </div>
+  
+      <!-- Section 2: Agentic AI -->
+      <h4 style="margin: 14px 0 6px 0; font-size: 14px; color: #5856d6; display: flex; align-items: center; gap: 6px;">
+        <span>🚀</span> Agentic AI & Autonomous Systems
+      </h4>
+      <p style="font-size: 12px; line-height: 1.4; color: #444; margin-bottom: 8px;">
+        Pioneering autonomous troubleshooting agents for Kubernetes and DevOps workflows using <b>LangGraph</b> and the <b>Model Context Protocol (MCP)</b> to create secure, stateful automation platforms.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
+        <span style="background: rgba(88,86,214,0.1); color: #5856d6; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">LangGraph</span>
+        <span style="background: rgba(88,86,214,0.1); color: #5856d6; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">MCP Protocol</span>
+        <span style="background: rgba(88,86,214,0.1); color: #5856d6; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">Kubernetes Automation</span>
+        <span style="background: rgba(88,86,214,0.1); color: #5856d6; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">LLM Orchestration</span>
+      </div>
+  
+      <!-- Section 3: Beyond Code -->
+      <h4 style="margin: 14px 0 6px 0; font-size: 14px; color: #34c759; display: flex; align-items: center; gap: 6px;">
+        <span>⚽</span> Beyond the Terminal
+      </h4>
+      <p style="font-size: 12px; line-height: 1.4; color: #555; margin-bottom: 12px;">
+        Data & stats enthusiast following global tech trends, Cricket, Tennis, and tactical setups in Football. Driven by a core belief that technology should always solve real human problems with tangible value.
+      </p>
+  
+      <!-- Close Button -->
+      <div style="display: flex; justify-content: flex-end; margin-top: 15px;">
+        <button onclick="closeWindow('about-window')" style="background: #007aff; color: white; border: none; padding: 6px 16px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">OK</button>
       </div>
     </div>
   </div>
 
-  <!-- Window 2: Projects -->
-  <div id="projects-window" class="window hidden" style="top: 120px; left: 200px;">
-    <div class="title-bar">
-      <button class="close-icon" onclick="closeWindow('projects-window')" aria-label="Close"></button>
-      <h1 class="title">Projects</h1>
-    </div>
-    <div class="separator"></div>
-    <div class="window-pane">
-      <ul>
-        <li><a href="https://github.com" target="_blank"><b>Project 1</b></a> - Brief description here.</li>
-        <li><a href="https://github.com" target="_blank"><b>Project 2</b></a> - Another cool project.</li>
-      </ul>
-    </div>
-  </div>
+  </main>
 
-  <!-- Window 3: Contact -->
-  <div id="contact-window" class="window hidden" style="top: 160px; left: 280px;">
-    <div class="title-bar">
-      <button class="close-icon" onclick="closeWindow('contact-window')" aria-label="Close"></button>
-      <h1 class="title">Contact Info</h1>
+  <!-- Floating Glass macOS Dock -->
+  <footer class="dock-container">
+    <div class="dock">
+      <div class="dock-item" title="Finder" onclick="openWindow('projects-window')">
+        <div class="dock-icon finder-icon">💻</div>
+        <span class="dot"></span>
+      </div>
+      <div class="dock-item" title="About" onclick="openWindow('about-window')">
+        <div class="dock-icon safari-icon">🧭</div>
+      </div>
+      <div class="dock-item" title="GitHub" onclick="window.open('https://github.com', '_blank')">
+        <div class="dock-icon github-icon">🐙</div>
+      </div>
+      <div class="dock-divider"></div>
+      <div class="dock-item" title="Trash">
+        <div class="dock-icon">🗑️</div>
+      </div>
     </div>
-    <div class="separator"></div>
-    <div class="window-pane">
-      <p>Reach out via GitHub or Email:</p>
-      <p>📧 Email: <code>mail.vijeshg@gmail.com</code></p>
-    </div>
-  </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
